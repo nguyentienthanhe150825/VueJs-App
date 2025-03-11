@@ -13,16 +13,31 @@
 </template>
 
 <script setup>// Xử lý logic
-import { userStore } from '../store/userStore';
+import { useUserStore  } from '../store/userStore';
+import { onMounted } from 'vue';
+
+const userStore = useUserStore();
 
 const columnsUser = [
     { title: 'ID', dataIndex: 'id' },
     { title: 'Tên', dataIndex: 'name' },
     { title: 'Email', dataIndex: 'email' },
+    { title: 'Số điện thoại', dataIndex: 'phone' },
+    { title: 'Giới tính', dataIndex: 'gender' },
+    { title: 'Địa chỉ', dataIndex: 'address' },
+    { title: 'Ảnh đại diện', dataIndex: 'avatar' },
+    { title: 'Ngày tạo', dataIndex: 'createAt' },
+    { title: 'Cập nhật lần cuối', dataIndex: 'updatedAt' },
     { title: 'Actions', dataIndex: 'actions' }
 ];
 
+// Gọi API để lấy danh sách user
+onMounted(() => {
+    console.log("onMounted: fetchUsers...");
+    userStore.fetchUsers(); // Gọi API để lấy danh sách user
+});
+
 const deleteUser = (id) => {
-    userStore.deleteUser(id);
+    userStore.removeUser(id);
 };
 </script>

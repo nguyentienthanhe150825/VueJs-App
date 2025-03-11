@@ -3,9 +3,9 @@ import UserList from '../views/UserList.vue';
 import UserForm from '../views/UserForm.vue';
 
 const routes = [
-    { path: '/', component: UserList },
-    { path: '/create', component: UserForm },
-    { path: '/edit/:id', component: UserForm },
+    { path: '/', name: "UserList", component: UserList },
+    { path: '/create', name: "CreateUser", component: UserForm },
+    { path: '/edit/:id', name: "EditUser", component: UserForm },
 ];
 
 const router = createRouter({

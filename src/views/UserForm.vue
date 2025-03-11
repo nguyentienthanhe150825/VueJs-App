@@ -16,7 +16,9 @@
 <script setup>
 import { reactive, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { userStore } from '../store/userStore';
+import { useUserStore  } from '../store/userStore';
+
+const userStore = useUserStore();
 
 const route = useRoute();    // Lấy thông tin URL (VD /edit/:id).
 const router = useRouter();  // Điều hướng trang

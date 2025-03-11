@@ -13,8 +13,10 @@ const apiClient = axios.create({
 const userApi = {
     async getUsers() {
         try {
+            console.log(">>> Đang gọi API GET /api/v1/users...");
             const response = await apiClient.get(API_URL);
-            return response;
+            console.log(">>> Kết quả API:", response.data);
+            return response.data.result;
         } catch (error) {
             console.error("Error fetching users:", error);
             throw error;
@@ -24,7 +26,7 @@ const userApi = {
     async getUserById(id) {
         try {
             const response = await apiClient.get(`${API_URL}/${id}`);
-            return response;
+            return response.data;
         } catch (error) {
             console.error(`Error fetching user with ID ${id}:`, error);
             throw error;
@@ -34,7 +36,7 @@ const userApi = {
     async createUser(userData) {
         try {
             const response = await apiClient.post(API_URL, userData);
-            return response;
+            return response.data;
         } catch (error) {
             console.error("Error creating user:", error);
             throw error;
@@ -50,3 +52,5 @@ const userApi = {
         }
     },
 }
+
+export default userApi;
