@@ -16,3 +16,6 @@ export const userStore = reactive({
         this.users = this.users.filter(user => user.id !== id);
     }
 });
+
+// reactive(): Dùng để quản lý state của object (Làm việc với Object có nhiều thuộc tính)
+// ref(): Dùng để quản lý state cho biến đơn (String, Number, Boolean, Object, Array)

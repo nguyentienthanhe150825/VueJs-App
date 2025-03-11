@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a-table :dataSource="userStore.users" :columns="columns" rowKey="id">
+        <a-table :dataSource="userStore.users" :columns="columnsUser" rowKey="id">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.dataIndex === 'actions'">
                     <a-button type="link" @click="$router.push(`/edit/${record.id}`)">Sửa</a-button>
@@ -12,14 +12,14 @@
     </div>
 </template>
 
-<script setup>
+<script setup>// Xử lý logic
 import { userStore } from '../store/userStore';
 
-const columns = [
+const columnsUser = [
     { title: 'ID', dataIndex: 'id' },
     { title: 'Tên', dataIndex: 'name' },
     { title: 'Email', dataIndex: 'email' },
-    { title: 'Hành động', dataIndex: 'actions' }
+    { title: 'Actions', dataIndex: 'actions' }
 ];
 
 const deleteUser = (id) => {
